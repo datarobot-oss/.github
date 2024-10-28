@@ -1,3 +1,3 @@
-# DataRobot OSS
+# DataRobot OSS Org Profile
 
-Non-customer open-source software from our Research and Development teams to give back to the community.
+Makes the profile page for the organization
