@@ -18,7 +18,7 @@
 </p>
 ## DataRobot OSS 
 
-Welcome to the open source organization at [DataRobot's](https://datarobot.com)! 👋
+Welcome to the open source organization at [DataRobot](https://datarobot.com)! 👋
 
 This organization contains our non-customer open-source software from DataRobot's Research and Development and Customer Facing DataScience teams. 
 We use this space to give back to the community with the tools, scripts, and libraries we use to help us develop and use DataRobot ourselves.
