@@ -1,0 +1,36 @@
+name: Review Router
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.REVIEW_ROUTER_APP_ID }}
+          private-key: ${{ secrets.REVIEW_ROUTER_APP_PRIVATE_KEY }}
+
+      - name: Generate config repo token
+        id: config-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.REVIEW_ROUTER_APP_ID }}
+          private-key: ${{ secrets.REVIEW_ROUTER_APP_PRIVATE_KEY }}
+          owner: datarobot
+          repositories: .review-router-config
+
+      - name: Run Review Router
+        uses: datarobot-oss/review-router@v1
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          config-token: ${{ steps.config-token.outputs.token }}
+          config-repo: datarobot/.review-router-config
+          slack-token: ${{ secrets.SLACK_BOT_TOKEN }}
