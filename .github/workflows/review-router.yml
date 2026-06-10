@@ -33,4 +33,4 @@ jobs:
           github-token: ${{ steps.app-token.outputs.token }}
           config-token: ${{ steps.config-token.outputs.token }}
           config-repo: datarobot/.review-router-config
-          slack-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack-token: ${{ secrets.REVIEW_ROUTER_SLACK_TOKEN }}
