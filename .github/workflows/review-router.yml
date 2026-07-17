@@ -9,6 +9,8 @@ on:
         required: false
       REVIEW_ROUTER_SLACK_TOKEN:
         required: false
+      REVIEW_ROUTER_JIRA_TOKEN:
+        required: false
 
 permissions:
   contents: read
@@ -47,3 +49,4 @@ jobs:
           config-token: ${{ steps.config-token.outputs.token }}
           config-repo: datarobot/.review-router-config
           slack-token: ${{ secrets.REVIEW_ROUTER_SLACK_TOKEN }}
+          jira-token: ${{ secrets.REVIEW_ROUTER_JIRA_TOKEN }}
