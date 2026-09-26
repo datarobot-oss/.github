@@ -11,6 +11,8 @@ on:
         required: false
       REVIEW_ROUTER_JIRA_TOKEN:
         required: false
+      REVIEW_ROUTER_AI_TOKEN:
+        required: false
 
 permissions:
   contents: read
@@ -19,6 +21,8 @@ permissions:
 jobs:
   route:
     runs-on: ubuntu-latest
+    # Routing takes seconds; the optional AI review stops itself at 15 minutes.
+    timeout-minutes: 30
     steps:
       - name: Generate GitHub App token
         id: app-token
@@ -50,3 +54,4 @@ jobs:
           config-repo: datarobot/.review-router-config
           slack-token: ${{ secrets.REVIEW_ROUTER_SLACK_TOKEN }}
           jira-token: ${{ secrets.REVIEW_ROUTER_JIRA_TOKEN }}
+          ai-token: ${{ secrets.REVIEW_ROUTER_AI_TOKEN }}
